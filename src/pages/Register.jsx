@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/ReactToastify.css'
 import styled from 'styled-components'
@@ -17,6 +17,12 @@ function Register() {
         draggable: true,
         theme: 'dark',
     }
+
+    useEffect(() => {
+        if (localStorage.getItem('chat-app-user')) {
+            navigate('/')
+        }
+    }, [])
 
     const [values, setValues] = useState({
         username: '',
@@ -91,7 +97,7 @@ function Register() {
                                 <input
                                     type="text"
                                     id="user"
-                                    name='username'
+                                    name="username"
                                     className="input-field"
                                     required
                                     onChange={(e) => handleChange(e)}
@@ -105,7 +111,7 @@ function Register() {
                                 <input
                                     type="email"
                                     id="email"
-                                    name='email'
+                                    name="email"
                                     className="input-field"
                                     required
                                     onChange={(e) => handleChange(e)}
@@ -119,7 +125,7 @@ function Register() {
                                 <input
                                     type="password"
                                     id="pass"
-                                    name='password'
+                                    name="password"
                                     className="input-field"
                                     required
                                     onChange={(e) => handleChange(e)}
@@ -133,7 +139,7 @@ function Register() {
                                 <input
                                     type="password"
                                     id="pass"
-                                    name='confirmPassword'
+                                    name="confirmPassword"
                                     required
                                     className="input-field"
                                     onChange={(e) => handleChange(e)}

@@ -78,43 +78,74 @@ function Register() {
     return (
         <>
             <FormContainer>
-                <form onSubmit={(event) => handleSubmit(event)}>
-                    <div className="brand">
-                        <img src={Logo} alt="Logo" />
-                        <h1>Chatty</h1>
-                    </div>
-                    <div>
-                        <input
-                            type="text"
-                            placeholder="Username"
-                            name="username"
-                            onChange={(e) => handleChange(e)}
-                        />
-                        <input
-                            type="email"
-                            placeholder="Email"
-                            name="email"
-                            onChange={(e) => handleChange(e)}
-                        />
-                        <input
-                            type="password"
-                            placeholder="Password"
-                            name="password"
-                            onChange={(e) => handleChange(e)}
-                        />
-                        <input
-                            type="password"
-                            placeholder="Confirm Password"
-                            name="confirmPassword"
-                            onChange={(e) => handleChange(e)}
-                        />
-                        <button type="submit">Create User</button>
-                        <span>
-                            Already have an account ?
-                            <Link to="/Login">Login</Link>
-                        </span>
-                    </div>
-                </form>
+                <div>
+                    <h1 id="mainHead">Register now ! !</h1>
+                    <form onSubmit={(event) => handleSubmit(event)}>
+                        <div className="brand">
+                            <img src={Logo} alt="Logo" />
+                            <h1>Chatty</h1>
+                        </div>
+                        <div>
+                            <div className="input-box">
+                                <input
+                                    type="text"
+                                    id="user"
+                                    className="input-field"
+                                    required
+                                    onChange={(e) => handleChange(e)}
+                                />
+                                <label for="user" className="label">
+                                    Username
+                                </label>
+                            </div>
+
+                            <div className="input-box">
+                                <input
+                                    type="email"
+                                    id="email"
+                                    className="input-field"
+                                    required
+                                    onChange={(e) => handleChange(e)}
+                                />
+                                <label for="email" className="label">
+                                    Email
+                                </label>
+                            </div>
+
+                            <div className="input-box">
+                                <input
+                                    type="password"
+                                    id="pass"
+                                    className="input-field"
+                                    required
+                                    onChange={(e) => handleChange(e)}
+                                />
+                                <label for="pass" className="label">
+                                    Password
+                                </label>
+                            </div>
+
+                            <div className="input-box">
+                                <input
+                                    type="password"
+                                    id="pass"
+                                    className="input-field"
+                                    required
+                                    onChange={(e) => handleChange(e)}
+                                />
+                                <label for="pass" className="label">
+                                    Confirm Password
+                                </label>
+                            </div>
+
+                            <button type="submit">Create User</button>
+                            <span>
+                                Already have an account ?
+                                <Link to="/Login">Login</Link>
+                            </span>
+                        </div>
+                    </form>
+                </div>
             </FormContainer>
             <ToastContainer />
         </>
@@ -122,6 +153,13 @@ function Register() {
 }
 
 const FormContainer = styled.div`
+    #mainHead {
+        display: flex;
+        justify-content: center;
+        color: #fff;
+        margin: 10px;
+        font-size: 4rem;
+    }
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -132,13 +170,14 @@ const FormContainer = styled.div`
     background-color: #132a13;
     .brand {
         display: flex;
-        align-items: center;
-        gap: 1rem;
+        flex-direction: column;
         justify-content: center;
+        gap: 1rem;
         img {
-            height: 5rem;
+            height: 15rem;
         }
-        h1 {
+        h1,
+        h2 {
             color: white;
             text-transform: uppercase;
         }
@@ -146,30 +185,19 @@ const FormContainer = styled.div`
     form {
         display: flex;
         flex-direction: row;
+        justify-content: center;
+        align-items: center;
         gap: 3rem;
         background-color: #31572c;
         border-radius: 2rem;
         padding: 3rem 5rem;
-        input {
-            background-color: transparent;
-            padding: 1rem;
-            margin: 1rem;
-            border: 0.1rem solid #4f772d;
-            border-radius: 0.4rem;
-            color: #90a955;
-            width: 100%;
-            font-size: 1rem;
-            &:focus {
-                border: 0.1rem solid #90a955;
-                outline: none;
-            }
-        }
         button {
             background-color: #90a955;
             color: white;
             padding: 1rem 2rem;
             border: none;
-            margin: 1rem;
+            margin-bottom: 1rem;
+            margin-right: 1rem;
             font-weight: bold;
             cursor: pointer;
             border-radius: 0.4rem;
@@ -189,6 +217,55 @@ const FormContainer = styled.div`
                 font-weight: bold;
             }
         }
+    }
+    .icon {
+        position: absolute;
+        top: 18px;
+        right: 25px;
+        font-size: 20px;
+    }
+    .input-box {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0;
+    }
+
+    .input-field {
+        width: 100%;
+        height: 55px;
+        font-size: 16px;
+        background: transparent;
+        color: #90a955;
+        padding-inline: 20px 50px;
+        border: 2px solid #7f964b;
+        border-radius: 7px;
+        outline: none;
+    }
+    .label {
+        position: absolute;
+        top: 15px;
+        left: 25px;
+        color: #90a955;
+        transition: 0.2s;
+    }
+
+    .input-field:focus ~ .label,
+    .input-field:valid ~ .label {
+        position: absolute;
+        top: -5px;
+        left: 20px;
+        font-size: 10px;
+        background-color: #90a955;
+        border-radius: 5px;
+        color: #31572c;
+        padding: 0 10px;
+    }
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        justify-content: center;
     }
 `
 

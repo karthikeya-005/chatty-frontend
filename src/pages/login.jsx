@@ -73,6 +73,7 @@ function Login() {
                                 <input
                                     type="text"
                                     id="user"
+                                    name='username'
                                     className="input-field"
                                     required
                                     onChange={(e) => handleChange(e)}
@@ -86,6 +87,7 @@ function Login() {
                                 <input
                                     type="password"
                                     id="pass"
+                                    name='password'
                                     className="input-field"
                                     required
                                     onChange={(e) => handleChange(e)}

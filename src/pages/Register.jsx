@@ -91,6 +91,7 @@ function Register() {
                                 <input
                                     type="text"
                                     id="user"
+                                    name='username'
                                     className="input-field"
                                     required
                                     onChange={(e) => handleChange(e)}
@@ -104,6 +105,7 @@ function Register() {
                                 <input
                                     type="email"
                                     id="email"
+                                    name='email'
                                     className="input-field"
                                     required
                                     onChange={(e) => handleChange(e)}
@@ -117,6 +119,7 @@ function Register() {
                                 <input
                                     type="password"
                                     id="pass"
+                                    name='password'
                                     className="input-field"
                                     required
                                     onChange={(e) => handleChange(e)}
@@ -130,6 +133,7 @@ function Register() {
                                 <input
                                     type="password"
                                     id="pass"
+                                    name='confirmPassword'
                                     required
                                     className="input-field"
                                     onChange={(e) => handleChange(e)}

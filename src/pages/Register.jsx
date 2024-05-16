@@ -66,8 +66,8 @@ function Register() {
             }
             if (data.status === true) {
                 localStorage.setItem('chat-app-user', JSON.stringify(data.user))
+                navigate('/')
             }
-            navigate('/')
         }
     }
 
@@ -85,6 +85,7 @@ function Register() {
                             <img src={Logo} alt="Logo" />
                             <h1>Chatty</h1>
                         </div>
+                        <hr id="split"></hr>
                         <div>
                             <div className="input-box">
                                 <input
@@ -129,8 +130,8 @@ function Register() {
                                 <input
                                     type="password"
                                     id="pass"
-                                    className="input-field"
                                     required
+                                    className="input-field"
                                     onChange={(e) => handleChange(e)}
                                 />
                                 <label for="pass" className="label">
@@ -153,11 +154,14 @@ function Register() {
 }
 
 const FormContainer = styled.div`
+    #split {
+        height: 20rem;
+    }
     #mainHead {
         display: flex;
         justify-content: center;
         color: #fff;
-        margin: 10px;
+        margin-bottom: 1rem;
         font-size: 4rem;
     }
     height: 100vh;
@@ -171,7 +175,7 @@ const FormContainer = styled.div`
     .brand {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        align-items: center;
         gap: 1rem;
         img {
             height: 15rem;
@@ -190,14 +194,13 @@ const FormContainer = styled.div`
         gap: 3rem;
         background-color: #31572c;
         border-radius: 2rem;
-        padding: 3rem 5rem;
+        padding: 5rem 7rem;
         button {
             background-color: #90a955;
             color: white;
             padding: 1rem 2rem;
             border: none;
             margin-bottom: 1rem;
-            margin-right: 1rem;
             font-weight: bold;
             cursor: pointer;
             border-radius: 0.4rem;
@@ -209,10 +212,13 @@ const FormContainer = styled.div`
             }
         }
         span {
+            display: flex;
+            flex-direction: row;
+            gap: 0.5rem;
             color: white;
             text-transform: uppercase;
             a {
-                color: #4f772d;
+                color: #54954b;
                 text-decoration: none;
                 font-weight: bold;
             }
@@ -255,11 +261,11 @@ const FormContainer = styled.div`
         position: absolute;
         top: -5px;
         left: 20px;
-        font-size: 10px;
+        font-size: 0.7rem;
         background-color: #90a955;
-        border-radius: 5px;
+        border-radius: 0.4rem;
         color: #31572c;
-        padding: 0 10px;
+        padding: 0.4rem;
     }
     .brand {
         display: flex;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/ReactToastify.css'
 import styled from 'styled-components'
@@ -17,6 +17,12 @@ function Login() {
         draggable: true,
         theme: 'dark',
     }
+
+    useEffect(() => {
+        if (localStorage.getItem('chat-app-user')) {
+            navigate('/')
+        }
+    }, [])
 
     const [values, setValues] = useState({
         username: '',
@@ -73,7 +79,7 @@ function Login() {
                                 <input
                                     type="text"
                                     id="user"
-                                    name='username'
+                                    name="username"
                                     className="input-field"
                                     required
                                     onChange={(e) => handleChange(e)}
@@ -87,7 +93,7 @@ function Login() {
                                 <input
                                     type="password"
                                     id="pass"
-                                    name='password'
+                                    name="password"
                                     className="input-field"
                                     required
                                     onChange={(e) => handleChange(e)}

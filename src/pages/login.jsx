@@ -236,6 +236,20 @@ const FormContainer = styled.div`
         gap: 1rem;
         justify-content: center;
     }
+    @media screen and (max-width: 768px) {
+        #split {
+            height: 0;
+            width: 20rem;
+        }
+        form {
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items horizontally */
+        }
+
+        .brand {
+            margin-bottom: 20px; /* Add space between logo and form */
+        }
+    }
 `
 
 export default Login

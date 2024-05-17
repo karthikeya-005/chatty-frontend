@@ -7,7 +7,6 @@ import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import { registerRoute } from '../utils/APIRoutes'
 
-
 function Register() {
     const navigate = useNavigate()
 
@@ -283,6 +282,20 @@ const FormContainer = styled.div`
         align-items: center;
         gap: 1rem;
         justify-content: center;
+    }
+    @media screen and (max-width: 768px) {
+        #split{
+            height: 0;
+            width: 20rem;
+        }
+        form {
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items horizontally */
+        }
+
+        .brand {
+            margin-bottom: 20px; /* Add space between logo and form */
+        }
     }
 `
 

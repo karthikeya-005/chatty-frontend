@@ -15,6 +15,12 @@ export default function SetAvatar() {
     const [isLoading, setIsLoading] = useState(true)
     const [selectedAvatar, setSelectedAvatar] = useState(undefined)
 
+    useEffect(() => {
+        if (!localStorage.getItem('chat-app-user')) {
+            navigate('/login')
+        }
+    }, [navigate])
+
     const toastOptions = {
         position: 'bottom-left',
         autoClose: 5000,

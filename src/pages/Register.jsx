@@ -7,6 +7,7 @@ import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import { registerRoute } from '../utils/APIRoutes'
 
+
 function Register() {
     const navigate = useNavigate()
 

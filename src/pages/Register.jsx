@@ -90,6 +90,7 @@ function Register() {
                         <div className="brand">
                             <img src={Logo} alt="Logo" />
                             <h1>Chatty</h1>
+                            <h1 id='responsiveHead'>Register</h1>
                         </div>
                         <hr id="split"></hr>
                         <div>
@@ -164,16 +165,6 @@ function Register() {
 }
 
 const FormContainer = styled.div`
-    #split {
-        height: 20rem;
-    }
-    #mainHead {
-        display: flex;
-        justify-content: center;
-        color: #fff;
-        margin-bottom: 1rem;
-        font-size: 4rem;
-    }
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -195,6 +186,16 @@ const FormContainer = styled.div`
             color: white;
             text-transform: uppercase;
         }
+    }
+    #split {
+        height: 20rem;
+    }
+    #mainHead {
+        display: flex;
+        justify-content: center;
+        color: #fff;
+        margin-bottom: 1rem;
+        font-size: 4rem;
     }
     form {
         display: flex;
@@ -240,6 +241,9 @@ const FormContainer = styled.div`
         right: 25px;
         font-size: 20px;
     }
+    #responsiveHead{
+        display: none;
+    }
     .input-box {
         position: relative;
         display: flex;
@@ -284,17 +288,37 @@ const FormContainer = styled.div`
         justify-content: center;
     }
     @media screen and (max-width: 768px) {
-        #split{
+        .brand {
+            h1{
+                font-size: 3rem;
+            }
+            img {
+                height: 6rem;
+            }
+        }
+        span{
+            font-size: 0.8rem;
+        }
+        #responsiveHead{
+            margin-top: 1rem;
+            display: block;
+            font-size: 1.4rem;
+        }
+        #mainHead {
+            display: none;
+        }
+        #split {
             height: 0;
             width: 20rem;
         }
         form {
+            border-radius: 0;
+            padding: 2rem 3rem;
+            width: 100vw;
+            height: 100vh;
+            gap: 0.5rem;
             flex-direction: column; /* Stack items vertically */
             align-items: center; /* Center items horizontally */
-        }
-
-        .brand {
-            margin-bottom: 20px; /* Add space between logo and form */
         }
     }
 `

@@ -60,7 +60,7 @@ function Register() {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        if (handleValidation()) {
+        if (handleValidation) {
             const { password, username, email } = values
             const { data } = await axios.post(registerRoute, {
                 username,
@@ -72,7 +72,7 @@ function Register() {
             }
             if (data.status === true) {
                 localStorage.setItem('chat-app-user', JSON.stringify(data.user))
-                navigate('/')
+                navigate('/setAvatar')
             }
         }
     }
@@ -188,7 +188,7 @@ const FormContainer = styled.div`
         }
     }
     #split {
-        height: 20rem;
+        height: 25rem;
     }
     #mainHead {
         display: flex;

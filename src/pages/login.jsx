@@ -43,7 +43,7 @@ function Login() {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        if (handleValidation()) {
+        if (handleValidation) {
             const { password, username } = values
             const { data } = await axios.post(loginRoute, {
                 username,
@@ -141,7 +141,7 @@ const FormContainer = styled.div`
         }
     }
     #split {
-        height: 20rem;
+        height: 15rem;
     }
     #mainHead {
         display: flex;

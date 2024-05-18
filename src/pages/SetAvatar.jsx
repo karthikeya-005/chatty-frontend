@@ -160,4 +160,13 @@ const Container = styled.div`
             background-color: #4f772d;
         }
     }
+    @media screen and (max-width: 768px) {
+        h1 {
+            font-size: 1.5rem;
+        }
+        .avatars {
+            flex-direction: column;
+            gap: 0;
+        }
+    }
 `

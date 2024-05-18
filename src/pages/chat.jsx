@@ -9,34 +9,42 @@ function Chat() {
     const [contacts, setContacts] = useState([])
     const [currentUser, setCurrentUser] = useState(undefined)
     const navigate = useNavigate()
-    async function getCurrentUser() {
-        if (!localStorage.getItem('chat-app-user')) {
-            navigate('/login')
-        } else {
-            setCurrentUser(
-                await JSON.parse(localStorage.getItem('chat-app-user'))
-            )
-        }
-    }
     useEffect(() => {
-        getCurrentUser()
-    },[])
+        const fetchCurrentUser = async () => {
+            if (!localStorage.getItem('chat-app-user')) {
+                navigate('/login')
+            } else {
+                const response = await JSON.parse(
+                    localStorage.getItem('chat-app-user')
+                )
+                setCurrentUser(response)
+            }
+        }
+        fetchCurrentUser()
+    }, [navigate])
 
-    async function fetchUsers() {
+    useEffect(() => {
         if (currentUser) {
             if (currentUser.isAvatarImageSet) {
-                const data = await axios.get(
-                    `${allUsersRoute}/${currentUser._id}`
-                )
-                setContacts(data.data)
+                async function fetchData() {
+                    try {
+                        const response = await axios.get(
+                            `${allUsersRoute}/${currentUser._id}`
+                        )
+                        console.log('API request successful:', response.data)
+                        setContacts(response.data)
+                    } catch (error) {
+                        console.error('API request failed:', error)
+                    }
+                }
+
+                fetchData()
             } else {
                 navigate('/setAvatar')
             }
         }
-    }
-    useEffect(() => {
-        fetchUsers()
-    }, [])
+    }, [currentUser, navigate])
+
     return (
         <Container>
             <div className="container">

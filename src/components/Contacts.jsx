@@ -25,12 +25,12 @@ export default function Contacts({ contacts, currentUser }) {
                     </div>
                     <div className="contacts">
                         {contacts.map((contact, index) => {
-                            return (
+                            return ( 
                                 <div
                                     className={`contact ${
                                         index === currentSelected
-                                            ? 'selected'
-                                            : ''
+                                            ? "selected"
+                                            : ""
                                     }`}
                                     key={index}
                                 >
@@ -66,30 +66,30 @@ export default function Contacts({ contacts, currentUser }) {
 
 const Container = styled.div`
     display: grid;
-    grid-template-columns: 10% 75% 15%;
+    grid-template-rows: 10% 75% 15%;
     overflow: hidden;
     background-color: #90a955;
-    .brand{
+    .brand {
         display: flex;
-        aligin-items: center;
+        align-items: center;
         justify-content: center;
         gap: 1rem;
-        img{
+        img {
             height: 2rem;
         }
-        h3{
+        h3 {
             color: white;
             text-transform: uppercase;
         }
     }
-    .contacts{
+    .contacts {
         display: flex;
         flex-direction: column;
-        align-itemsL center;
+        align-items: center;
         overflow: auto;
         gap: 0.8rem;
-        .contact{
-            background-color: #ffffff39
+        .contact {
+            background-color: #fff;
         }
     }
 `

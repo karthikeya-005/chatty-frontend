@@ -90,7 +90,7 @@ function Register() {
                         <div className="brand">
                             <img src={Logo} alt="Logo" />
                             <h1>Chatty</h1>
-                            <h1 id='responsiveHead'>Register</h1>
+                            <h1 id="responsiveHead">Register</h1>
                         </div>
                         <hr id="split"></hr>
                         <div>
@@ -241,7 +241,7 @@ const FormContainer = styled.div`
         right: 25px;
         font-size: 20px;
     }
-    #responsiveHead{
+    #responsiveHead {
         display: none;
     }
     .input-box {
@@ -289,17 +289,17 @@ const FormContainer = styled.div`
     }
     @media screen and (max-width: 768px) {
         .brand {
-            h1{
+            h1 {
                 font-size: 3rem;
             }
             img {
                 height: 6rem;
             }
         }
-        span{
+        span {
             font-size: 0.8rem;
         }
-        #responsiveHead{
+        #responsiveHead {
             margin-top: 1rem;
             display: block;
             font-size: 1.4rem;
@@ -309,13 +309,13 @@ const FormContainer = styled.div`
         }
         #split {
             height: 0;
-            width: 20rem;
+            width: 10rem;
         }
+        width: 100vw;
+        height: 100vh;
         form {
-            border-radius: 0;
             padding: 2rem 3rem;
-            width: 100vw;
-            height: 100vh;
+            width: 90vw;
             gap: 0.5rem;
             flex-direction: column; /* Stack items vertically */
             align-items: center; /* Center items horizontally */

@@ -262,13 +262,13 @@ const FormContainer = styled.div`
         }
         #split {
             height: 0;
-            width: 20rem;
+            width: 10rem;
         }
+        width: 100vw;
+        height: 100vh;
         form {
-            border-radius: 0;
+            width: 90vw;
             padding: 2rem 3rem;
-            width: 100vw;
-            height: 100vh;
             gap: 0.5rem;
             flex-direction: column; /* Stack items vertically */
             align-items: center; /* Center items horizontally */

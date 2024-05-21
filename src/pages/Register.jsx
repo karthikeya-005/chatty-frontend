@@ -85,7 +85,7 @@ function Register() {
         <>
             <FormContainer>
                 <div>
-                    <h1 id="mainHead">Register now ! !</h1>
+                    <h1 id="mainHead">Register</h1>
                     <form onSubmit={(event) => handleSubmit(event)}>
                         <div className="brand">
                             <img src={Logo} alt="Logo" />
@@ -302,6 +302,7 @@ const FormContainer = styled.div`
         #responsiveHead {
             margin-top: 1rem;
             display: block;
+            text-transform: none;
             font-size: 1.4rem;
         }
         #mainHead {

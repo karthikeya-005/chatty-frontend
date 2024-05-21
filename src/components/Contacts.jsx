@@ -3,7 +3,12 @@ import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Logo from '../assets/Logo.svg'
 
-export default function Contacts({ contacts, currentUser, changeChat }) {
+export default function Contacts({
+    contacts,
+    currentUser,
+    changeChat,
+    isClicked,
+}) {
     const [currentUserName, setCurrentUserName] = useState(undefined)
     const [currentUserImage, setCurrentUserImage] = useState(undefined)
     const [currentSelected, setCurrentSelected] = useState(undefined)
@@ -52,7 +57,13 @@ export default function Contacts({ contacts, currentUser, changeChat }) {
                             )
                         })}
                     </div>
-                    <div className="current-user">
+                    <div
+                        className="current-user"
+                        onClick={() => {
+                            changeChat(currentUser)
+                            isClicked(true)
+                        }}
+                    >
                         <div className="avatar">
                             <img
                                 src={`data:image/svg+xml;base64,${currentUserImage}`}
@@ -95,7 +106,7 @@ const Container = styled.div`
         gap: 0.8rem;
         .contact {
             display: flex;
-            background-color: #ffffff39;
+            background-color: #0d53144d;
             min-height: 5rem;
             width: 90%;
             cursor: pointer;
@@ -116,7 +127,7 @@ const Container = styled.div`
             }
         }
         .selected {
-            background-color: #4e763a;
+            background-color: #264118;
         }
         &::-webkit-scrollbar {
             width: 0.2rem;
@@ -128,6 +139,7 @@ const Container = styled.div`
         }
     }
     .current-user {
+        cursor: pointer;
         background-color: #4f772d;
         display: flex;
         justify-content: center;
@@ -136,21 +148,15 @@ const Container = styled.div`
         .avatar {
             img {
                 height: 4rem;
-                max-inline-size: 100%;
             }
         }
         .username {
             h2 {
                 color: white;
+                font-size: 2rem;
             }
         }
     }
     @media screen and (max-width: 768px) {
-        gap: 0.5rem;
-        .username {
-            h2 {
-                font-size: 1rem;
-            }
-        }
     }
 `

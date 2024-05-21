@@ -3,15 +3,16 @@ import styled from 'styled-components'
 import Hello from '../assets/hello.gif'
 
 export default function Welcome({ currentUser }) {
-    console.log(currentUser)
     return (
-        <Container>
-            <img src={Hello} alt="hello" />
-            <h1>
-                Welcome, <span>{currentUser.username}</span>
-            </h1>
-            <h3>Please select a chat to start messaging.</h3>
-        </Container>
+        <>
+            <Container>
+                <img src={Hello} alt="hello" />
+                <h1>
+                    Welcome, <span>{currentUser.username}</span>
+                </h1>
+                <h3>Please select a chat to start messaging.</h3>
+            </Container>
+        </>
     )
 }
 
@@ -27,5 +28,10 @@ const Container = styled.div`
     }
     span {
         color: #6dcd1b;
+    }
+    @media screen and (max-width: 768px) {
+        img{
+            height:20rem;
+        }
     }
 `

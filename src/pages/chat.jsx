@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Contacts from '../components/Contacts'
+import Settings from '../components/Settings'
 import Welcome from '../components/Welcome'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
@@ -12,6 +13,7 @@ function Chat() {
     const [currentUser, setCurrentUser] = useState(undefined)
     const [currentChat, setCurrentChat] = useState(undefined)
     const [isLoaded, setIsLoaded] = useState(false)
+    const [isClicked, setIsClicked] = useState(false)
     const navigate = useNavigate()
     useEffect(() => {
         const fetchCurrentUser = async () => {
@@ -36,7 +38,6 @@ function Chat() {
                         const response = await axios.get(
                             `${allUsersRoute}/${currentUser._id}`
                         )
-                        console.log('API request successful:', response.data)
                         setContacts(response.data)
                     } catch (error) {
                         console.error('API request failed:', error)
@@ -55,20 +56,25 @@ function Chat() {
     }
 
     return (
-        <Container>
-            <div className="container">
-                <Contacts
-                    contacts={contacts}
-                    currentUser={currentUser}
-                    changeChat={handleChatChange}
-                />
-                {isLoaded && currentChat === undefined ? (
-                    <Welcome currentUser={currentUser} />
-                ) : (
-                    <ChatContainer currentUser={currentUser} />
-                )}
-            </div>
-        </Container>
+        <>
+            <Container>
+                <div className="container">
+                    <Contacts
+                        contacts={contacts}
+                        currentUser={currentUser}
+                        changeChat={handleChatChange}
+                        isClicked={setIsClicked}
+                    />
+                    {isLoaded && currentChat === undefined ? (
+                        <Welcome currentUser={currentUser} />
+                    ) : isClicked && currentChat === currentUser ? (
+                        <Settings />
+                    ) : (
+                        <ChatContainer currentChat={currentChat} />
+                    )}
+                </div>
+            </Container>
+        </>
     )
 }
 
@@ -87,11 +93,9 @@ const Container = styled.div`
         background-color: #31572c;
         display: grid;
         grid-template-columns: 25% 75%;
-        @media screen and (min-width: 720px) and (max-width: 1080px) {
-            grid-template-columns: 35% 65%;
-        }
-        @media screen and (min-width: 360px) and (max-width: 480px) {
-            grid-template-columns: 35% 65%;
+    }
+    @media screen and (max-width: 768px) {
+        .container {
         }
     }
 `

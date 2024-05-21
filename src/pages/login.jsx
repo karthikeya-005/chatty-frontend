@@ -255,6 +255,7 @@ const FormContainer = styled.div`
         #responsiveHead {
             margin-top: 1rem;
             display: block;
+            text-transform: none;
             font-size: 1.4rem;
         }
         #mainHead {

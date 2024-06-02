@@ -37,11 +37,17 @@ export default function SetAvatar() {
             const { data } = await axios.post(`${setAvatarRoute}/${user._id}`, {
                 image: avatars[selectedAvatar],
             })
-            user.isAvatarImageSet = true
-            user.avatarImage = data.image
-            localStorage.setItem('chat-app-user', JSON.stringify(user))
-            navigate('/')
-            toast.info('Avatar image is set', toastOptions)
+            if (data.isSet) {
+                user.isAvatarImageSet = true
+                user.avatarImage = data.image
+                localStorage.setItem('chat-app-user', JSON.stringify(user))
+                navigate('/')
+            } else {
+                toast.error(
+                    'Error setting avatar. Please try again',
+                    toastOptions
+                )
+            }
         }
     }
 

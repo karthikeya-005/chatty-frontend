@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import EmojiPicker from 'emoji-picker-react'
 import { IoMdSend } from 'react-icons/io'
 import { BsEmojiSmileFill } from 'react-icons/bs'
-export default function ChatInput({handleSendMsg}) {
+export default function ChatInput({ handleSendMsg }) {
     const [showEmojiPicker, setShowEmojiPicker] = useState(false)
     const [msg, setMsg] = useState('')
     const sendChat = (event) => {
-        event.preventDefault();
+        event.preventDefault()
         if (msg.length > 0) {
-            handleSendMsg(msg);
+            handleSendMsg(msg)
             setMsg('')
         }
     }
@@ -37,10 +37,10 @@ export default function ChatInput({handleSendMsg}) {
                     )}
                 </div>
             </div>
-            <form className="input-container" onSubmit={(e)=>sendChat(e)}>
+            <form className="input-container" onSubmit={(e) => sendChat(e)}>
                 <input
                     type="text"
-                    placeholder="Type your message here..."
+                    placeholder="type your message here..."
                     value={msg}
                     onChange={(e) => setMsg(e.target.value)}
                 />
@@ -103,7 +103,6 @@ const Container = styled.div`
         background-color: #ffffff34;
         input {
             width: 90%;
-            height: 60%;
             background-color: transparent;
             color: white;
             border: none;

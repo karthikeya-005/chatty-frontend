@@ -70,7 +70,7 @@ function Chat() {
                     ) : isClicked && currentChat === currentUser ? (
                         <Settings />
                     ) : (
-                        <ChatContainer currentChat={currentChat} />
+                        <ChatContainer currentChat={currentChat} currentUser={currentUser} />
                     )}
                 </div>
             </Container>

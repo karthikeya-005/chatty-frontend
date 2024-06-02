@@ -57,13 +57,7 @@ export default function Contacts({
                             )
                         })}
                     </div>
-                    <div
-                        className="current-user"
-                        onClick={() => {
-                            changeChat(currentUser)
-                            isClicked(true)
-                        }}
-                    >
+                    <div className="current-user">
                         <div className="avatar">
                             <img
                                 src={`data:image/svg+xml;base64,${currentUserImage}`}
@@ -139,7 +133,6 @@ const Container = styled.div`
         }
     }
     .current-user {
-        cursor: pointer;
         background-color: #4f772d;
         display: flex;
         justify-content: center;

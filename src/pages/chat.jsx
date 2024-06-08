@@ -67,6 +67,7 @@ function Chat() {
             <Container>
                 <div className="container">
                     <Contacts
+                        className="contacts"
                         contacts={contacts}
                         currentUser={currentUser}
                         changeChat={handleChatChange}
@@ -103,8 +104,20 @@ const Container = styled.div`
         display: grid;
         grid-template-columns: 25% 75%;
     }
+    /* Maintain existing styles */
+
     @media screen and (max-width: 768px) {
         .container {
+            margin-top: 2rem;
+            height: 95vh;
+            width: 90vw;
+            flex-direction: column;
+            grid-template-columns: 1fr;
+        }
+    }
+    @media screen and (min-width: 768px) and (max-width: 1290px) {
+        .container {
+            grid-template-columns: 40% 60%;
         }
     }
 `

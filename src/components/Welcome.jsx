@@ -29,16 +29,14 @@ const Container = styled.div`
     span {
         color: #6dcd1b;
     }
-    /* Maintain existing styles */
-
     @media screen and (max-width: 768px) {
         min-height: 75vh;
         max-height: 75vh;
         img {
-            height: 20rem; /* Reduce image height for better fit */
+            height: 20rem;
         }
         h1 {
-            font-size: 1.5rem; /* Slightly smaller heading for readability */
+            font-size: 1.5rem;
         }
     }
 `

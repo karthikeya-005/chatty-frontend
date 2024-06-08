@@ -104,8 +104,6 @@ const Container = styled.div`
         display: grid;
         grid-template-columns: 25% 75%;
     }
-    /* Maintain existing styles */
-
     @media screen and (max-width: 768px) {
         .container {
             height: 90vh;

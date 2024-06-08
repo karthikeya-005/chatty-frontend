@@ -150,30 +150,42 @@ const Container = styled.div`
             }
         }
     }
-    /* Maintain existing styles */
-
     @media screen and (max-width: 768px) {
         max-height: 30vh;
-        gap: 1.5rem;
-        grid-template-rows: 20% 80%; /* Adjust row heights for better layout */
+        padding: 0 0.3rem;
+        display: flex;
+        gap:0.5rem;
         .brand {
-            padding-top: 2rem;
-            justify-content: center; /* Align brand elements to left */
+            flex-direction: column;
+            justify-content: center;
         }
 
         .contacts {
-            gap: 0.1rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+            gap: 0.3rem;
             padding-top: 0.5rem;
-            max-height: 60%;
-            overflow-y: auto; /* Enable vertical scrolling for contacts list */
+            overflow-x: auto;
         }
 
         .contact {
-            width: 80%; /* Reduce contact width for better fit */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem;
+            gap: 0.5rem;
+            .username{
+                h3{
+                    font-size: 1rem;
+                }
+            }
+            flex-direction: column;
+            width: 80%;
         }
 
         .current-user {
-            display: none; /* Hide current user section on small screens */
+            display: none;
         }
     }
 `

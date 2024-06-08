@@ -170,18 +170,17 @@ const Container = styled.div`
             }
         }
     }
-    /* Maintain existing styles */
 
     @media screen and (max-width: 768px) {
         min-height: 75vh;
         max-height: 75vh;
         .chat-header,
         .chat-messages {
-            padding: 1rem; /* Reduce padding for better spacing on small screens */
+            padding: 1rem;
         }
 
         .chat-messages {
-            font-size: 0.9rem; /* Slightly smaller font for better readability */
+            font-size: 0.9rem;
         }
         grid-template-rows: 10% 80% 10%;
         .user-details {

@@ -129,8 +129,6 @@ const Container = styled.div`
             }
         }
     }
-    /* Maintain existing styles */
-
     @media screen and (max-width: 768px) {
         padding: 0.5rem 1rem;
         gap: 1rem;

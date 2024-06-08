@@ -108,7 +108,7 @@ const Container = styled.div`
 
     @media screen and (max-width: 768px) {
         .container {
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             height: 95vh;
             width: 90vw;
             flex-direction: column;

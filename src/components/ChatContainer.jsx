@@ -172,14 +172,14 @@ const Container = styled.div`
     }
 
     @media screen and (max-width: 768px) {
-        min-height: 75vh;
-        max-height: 75vh;
+        min-height: 65vh;
         .chat-header,
         .chat-messages {
             padding: 1rem;
         }
 
         .chat-messages {
+            height: 60vh;
             font-size: 0.9rem;
         }
         grid-template-rows: 10% 80% 10%;

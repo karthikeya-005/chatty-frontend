@@ -146,7 +146,7 @@ const Container = styled.div`
         }
     }
     @media screen and (max-width: 768px) {
-        max-height: 30vh;
+        height: 20vh;
         padding: 0 0.3rem;
         display: flex;
         gap: 0.5rem;

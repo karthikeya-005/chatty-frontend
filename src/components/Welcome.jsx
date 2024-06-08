@@ -30,8 +30,7 @@ const Container = styled.div`
         color: #6dcd1b;
     }
     @media screen and (max-width: 768px) {
-        min-height: 75vh;
-        max-height: 75vh;
+        min-height: 65vh;
         img {
             height: 20rem;
         }

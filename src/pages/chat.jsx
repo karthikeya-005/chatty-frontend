@@ -108,8 +108,8 @@ const Container = styled.div`
 
     @media screen and (max-width: 768px) {
         .container {
-            margin-top: 2.5rem;
-            height: 95vh;
+            margin-top: 2rem;
+            height: 90vh;
             width: 90vw;
             flex-direction: column;
             grid-template-columns: 1fr;

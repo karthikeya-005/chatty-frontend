@@ -129,4 +129,20 @@ const Container = styled.div`
             }
         }
     }
+    /* Maintain existing styles */
+
+    @media screen and (max-width: 768px) {
+        padding: 0.5rem 1rem;
+        gap: 1rem;
+        .input-container {
+            input {
+                font-size: 1rem;
+            }
+            button {
+                svg {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
 `

@@ -76,7 +76,7 @@ export default function Contacts({
 
 const Container = styled.div`
     display: grid;
-    grid-template-rows: 10% 75% 15%;
+    grid-template-rows: 10% 78.5% 11.5%;
     overflow: hidden;
     background-color: #90a955;
     .brand {
@@ -150,6 +150,30 @@ const Container = styled.div`
             }
         }
     }
+    /* Maintain existing styles */
+
     @media screen and (max-width: 768px) {
+        max-height: 30vh;
+        gap: 1.5rem;
+        grid-template-rows: 20% 80%; /* Adjust row heights for better layout */
+        .brand {
+            padding-top: 2rem;
+            justify-content: center; /* Align brand elements to left */
+        }
+
+        .contacts {
+            gap: 0.1rem;
+            padding-top: 0.5rem;
+            max-height: 60%;
+            overflow-y: auto; /* Enable vertical scrolling for contacts list */
+        }
+
+        .contact {
+            width: 80%; /* Reduce contact width for better fit */
+        }
+
+        .current-user {
+            display: none; /* Hide current user section on small screens */
+        }
     }
 `

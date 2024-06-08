@@ -3,11 +3,7 @@ import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Logo from '../assets/Logo.svg'
 
-export default function Contacts({
-    contacts,
-    currentUser,
-    changeChat,
-}) {
+export default function Contacts({ contacts, currentUser, changeChat }) {
     const [currentUserName, setCurrentUserName] = useState(undefined)
     const [currentUserImage, setCurrentUserImage] = useState(undefined)
     const [currentSelected, setCurrentSelected] = useState(undefined)
@@ -30,6 +26,56 @@ export default function Contacts({
                         <h3>Chatty</h3>
                     </div>
                     <div className="contacts">
+                        {contacts.map((contact, index) => {
+                            return (
+                                <div
+                                    className={`contact ${
+                                        index === currentSelected
+                                            ? 'selected'
+                                            : ''
+                                    }`}
+                                    key={index}
+                                    onClick={() => {
+                                        changeCurrentChat(index, contact)
+                                    }}
+                                >
+                                    <div className="avatar">
+                                        <img
+                                            src={`data:image/svg+xml;base64,${contact.avatarImage}`}
+                                            alt="avatar"
+                                        />
+                                    </div>
+                                    <div className="username">
+                                        <h3>{contact.username}</h3>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                        {contacts.map((contact, index) => {
+                            return (
+                                <div
+                                    className={`contact ${
+                                        index === currentSelected
+                                            ? 'selected'
+                                            : ''
+                                    }`}
+                                    key={index}
+                                    onClick={() => {
+                                        changeCurrentChat(index, contact)
+                                    }}
+                                >
+                                    <div className="avatar">
+                                        <img
+                                            src={`data:image/svg+xml;base64,${contact.avatarImage}`}
+                                            alt="avatar"
+                                        />
+                                    </div>
+                                    <div className="username">
+                                        <h3>{contact.username}</h3>
+                                    </div>
+                                </div>
+                            )
+                        })}
                         {contacts.map((contact, index) => {
                             return (
                                 <div
@@ -153,13 +199,21 @@ const Container = styled.div`
         max-height: 30vh;
         padding: 0 0.3rem;
         display: flex;
-        gap:0.5rem;
+        gap: 0.5rem;
         .brand {
             flex-direction: column;
             justify-content: center;
         }
 
         .contacts {
+            &::-webkit-scrollbar {
+                height: 0.6rem;
+                &-thumb {
+                    background-color: #ffffff39;
+                    height: 0.6rem;
+                    border-radius: 1rem;
+                }
+            }
             flex-grow: 1;
             display: flex;
             flex-direction: row;
@@ -174,8 +228,8 @@ const Container = styled.div`
             align-items: center;
             padding: 0.5rem;
             gap: 0.5rem;
-            .username{
-                h3{
+            .username {
+                h3 {
                     font-size: 1rem;
                 }
             }

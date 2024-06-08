@@ -14,7 +14,6 @@ function Chat() {
     const [currentUser, setCurrentUser] = useState(undefined)
     const [currentChat, setCurrentChat] = useState(undefined)
     const [isLoaded, setIsLoaded] = useState(false)
-    const [isClicked, setIsClicked] = useState(false)
     const navigate = useNavigate()
     useEffect(() => {
         const fetchCurrentUser = async () => {
@@ -71,7 +70,6 @@ function Chat() {
                         contacts={contacts}
                         currentUser={currentUser}
                         changeChat={handleChatChange}
-                        isClicked={setIsClicked}
                     />
                     {isLoaded && currentChat === undefined ? (
                         <Welcome currentUser={currentUser} />

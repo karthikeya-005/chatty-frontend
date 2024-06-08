@@ -7,7 +7,6 @@ export default function Contacts({
     contacts,
     currentUser,
     changeChat,
-    isClicked,
 }) {
     const [currentUserName, setCurrentUserName] = useState(undefined)
     const [currentUserImage, setCurrentUserImage] = useState(undefined)

@@ -32,7 +32,7 @@ const Container = styled.div`
     @media screen and (max-width: 768px) {
         min-height: 65vh;
         img {
-            height: 20rem;
+            height: 25rem;
         }
         h1 {
             font-size: 1.5rem;
